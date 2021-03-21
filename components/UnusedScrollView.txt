@@ -1,0 +1,33 @@
+<ScrollView>
+    <KeyboardAvoidingView style={styles.keyBoardStyle}>
+    <TextInput
+        style ={styles.formTextInput}
+        placeholder={"enter book name"}
+        onChangeText={(text)=>{
+            this.setState({
+                bookName:text
+            })
+        }}
+        value={this.state.bookName}
+    />
+    <TextInput
+        style ={[styles.formTextInput,{height:300}]}
+        multiline
+        numberOfLines ={8}
+        placeholder={"Why do you need the book"}
+        onChangeText ={(text)=>{
+            this.setState({
+                reasonToRequest:text
+            })
+        }}
+        value ={this.state.reasonToRequest}
+    />
+    <TouchableOpacity
+        style={styles.button}
+        onPress={()=>{this.addRequest(this.state.bookName,this.state.reasonToRequest)}}
+        >
+        <Text>Request</Text>
+    </TouchableOpacity>
+
+    </KeyboardAvoidingView>
+</ScrollView>
